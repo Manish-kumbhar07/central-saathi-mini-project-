@@ -20,7 +20,12 @@ Mumbai’s local network is part of everyday life for millions of people. Centra
 The project focuses on the **Central Line**, connecting CSMT with the suburban corridors toward Kasara and Karjat. It combines a browser interface with a Python API, local data engines, and optional Google Maps and Gemini integrations.
 
 <p align="center">
-  <img src="public/assets/mumbai_local_train.jpg" alt="Mumbai suburban local train" width="88%" />
+  <img src="public/assets/central-saathi-route.gif" alt="Looping schematic animation of a train moving along the Central Line route" width="100%" />
+</p>
+<p align="center"><sub>Illustrative route animation — the moving marker is a schematic, not a live GPS feed.</sub></p>
+
+<p align="center">
+  <img src="public/assets/mumbai_local_train.jpg" alt="Mumbai suburban local train" width="80%" />
 </p>
 
 ## What you can explore
@@ -89,7 +94,7 @@ source .venv/bin/activate
 
 ### 2. Install the Python packages
 
-The current repository does not include a `requirements.txt`, so install the packages used by the Flask application directly:
+Install the Python packages used by the Flask application:
 
 ```bash
 python -m pip install flask python-dotenv numpy pandas matplotlib plotly requests beautifulsoup4
@@ -203,29 +208,37 @@ http://localhost:3000/api/route?origin=CSMT&destination=KYN
 └── README.md
 ```
 
-## The people behind it
+## Team and contributions
 
-CentralSaathi is a team effort, with work across the interface, API, backend, server engines, and railway data.
+CentralSaathi was built as a collaborative project. The work spans product design, frontend development, backend services, server-side train tools, and railway data.
 
-| Contributor | Focus |
-|---|---|
-| **Manish** | Frontend experience, API, and application integration |
-| **Jayesh** | Backend and server-side engineering |
-| **Arnav** | Server and data engineering, including train tracking, timetable tools, and route logic |
-| **Viraj** | Station and connectivity data |
+### Manish — Product experience, frontend, and API
 
-### Arnav’s contributions
+- Shaped the commuter-facing experience, including the main page, interaction flow, and visual assets.
+- Developed frontend behavior and integrated it with the project’s API routes.
+- Contributed to API and application integration across the project.
+- **Key areas:** `index.html`, `app.js`, `server.js`, `metadata.json`, `public/assets/`, and API work in `backend/app.py`.
 
-Arnav’s work connects the train-service experience with the data behind it:
+### Jayesh — Backend and server engineering
 
-- `server/live_tracker.py` — train-position interpolation and movement logic
-- `server/live_trains_engine.py` — train search and timetable engine
-- `server/route_engine.py` — route-planning logic
-- `server/timetable_importer.py` — timetable import utilities
-- `server/timetable_validator.py` — timetable consistency checks
-- Station and connection data work in collaboration with Viraj
+- Worked on the Python backend, including timetable, database, analytics, and railway-scraping components.
+- Collaborated on the application’s server runtime and the services that support commuter features.
+- Helped connect backend data and route logic to user-facing features.
+- **Key areas:** `backend/database.py`, `backend/timetable_engine.py`, `backend/analytics_engine.py`, `backend/railway_analytics.py`, `backend/scrapers.py`, and `backend/railway_scraper.py`.
 
-Server and data work was developed collaboratively across the team.
+### Arnav — Train systems and data engineering
+
+- Built and extended train movement, active-train, and route-planning components for the Central Line.
+- Added timetable import and validation tools to help prepare and check schedule data.
+- Collaborated on station and connection data with Viraj.
+- **Key areas:** `server/live_tracker.py`, `server/live_trains_engine.py`, `server/route_engine.py`, `server/timetable_importer.py`, `server/timetable_validator.py`, and shared station-data work.
+
+### Viraj — Station and connectivity data
+
+- Worked on the Central Line station and connection datasets used by route and map features.
+- Contributed station attributes such as coordinates, distances, platforms, junctions, and interchange links.
+- Collaborated with Arnav on preparing and checking railway data for the application.
+- **Key areas:** `data/central_line_stations.json`, `data/central_line_connections.json`, and shared timetable-data work.
 
 ## Project goals
 
